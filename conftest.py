@@ -16,12 +16,12 @@ def driver(request):
     browser_name = request.config.getoption("browser_name")
     user_language = request.config.getoption("language")
     browser = None
-    if browser_name == "chrome" and user_language in ['ru', 'en']:
+    if browser_name == "chrome" and user_language in ['ru', 'en', 'es']:
         print(f"\nstart {browser_name}browser for test with {user_language}..")
         options = op_chrome()
         options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
         browser = webdriver.Chrome(options=options)
-    elif browser_name == "firefox" and user_language in ['ru', 'en']:
+    elif browser_name == "firefox" and user_language in ['ru', 'en', 'es']:
         print(f"\nstart {browser_name}browser for test with {user_language}..")
         options = op_firefox()
         options.set_preference('intl.accept_languages', user_language)
